@@ -1,0 +1,158 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>分享</title>
+    <style>
+        body {
+            margin: 0;
+            font-size: 12px;
+            background: #fac730;
+            position: relative;
+            min-height: 100vh;
+            max-width: 100vw;
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .details {
+            background: #fac730;
+            color: #ffffff;
+        }
+
+        .m_details {
+            padding: 10px;
+        }
+
+        .fl h3 {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        button {
+            display: block;
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            color: #fac730;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            border: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        #yindao {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="././images/123.png" alt="">
+    <div class="details">
+        <div class="m_details">
+            <div class="fl">
+                <h3>
+                    幸福无限APP
+                </h3>
+                <p style="text-indent: 24px;">
+                    美溪通信以“通信+物联网+互联网+人工智能+大数据”模式，定位于移动互联网融合通信运营服务商,以移动互联网为平台、通信技术 为手段，以移动互联网思维，整合全国乃至全球各地基础电信运营商的产品和服务，再次开发、提升，为解决客户日益复杂的移动互联
+                    网通信需求，提供个性化、丰富、整体的通信运营解决方案和服务。
+                </p>
+            </div>
+        </div>
+    </div>
+    <img src="./images/121.png" alt="">
+    <button id="openApp">立即下载</button>
+    <img src="./images/IMG_3790.png" alt="" id="yindao" style="display: none">
+    <script type="text/javascript">
+        /* eslint-disable */
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {   //移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+        if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
+            var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+	        //判断微信内置浏览器和qq内置浏览器
+            if (/iPhone|mac|iPod|iPad/ig.test(navigator.userAgent)) {
+                                                                 // iosQQ内置浏览器包含空格qq 但不包含mqqbrowser；qq浏览器包含mqqbrowser但不包含空格qq
+                if (ua.match(/MicroMessenger/i) == "micromessenger" || (/\s+qq/.test(ua) && !(/mqqbrowser/.test(ua)))) {
+                    //在微信中打开 在QQ空间打开
+                    document.getElementById('openApp').onclick = function () {
+                        document.getElementById('yindao').style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('openApp').onclick = function (e) {
+                        var loadDateTime = new Date();
+                        window.setTimeout(function () {
+                            var timeOutDateTime = new Date();
+                            if (timeOutDateTime - loadDateTime < 5000) {
+                                window.location = "http://itunes.apple.com/app/id1318137863";
+                            } else {
+                                window.close();
+                            }
+                        },
+                            2500);
+                        window.location.href = "XFWXApp://com.xingfuwuxian.XFWXApp";
+                    }
+                }
+                    
+            } else if (navigator.userAgent.match(/android/i)) {
+                if (ua.match(/MicroMessenger/i) == "micromessenger" || (/\s+qq/.test(ua) && /mqqbrowser/.test(ua))) {
+                    //在微信中打开 在QQ空间打开
+                    document.getElementById('openApp').onclick = function () {
+                        document.getElementById('yindao').style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('openApp').onclick = function (e) {
+                        var loadDateTime = new Date();
+                        window.setTimeout(function () {
+                            var timeOutDateTime = new Date();
+                            if (timeOutDateTime - loadDateTime < 5000) {
+                                window.location = "http://www.mengyunjie.com/m/o2oshop?ddid=703";
+                            } else {
+                                window.close();
+                            }
+                        },
+                            2500);
+                        window.location.href = "happywifi://meixi";
+                    }
+                }
+                    
+             }
+            
+        }
+
+
+    </script>
+</body>
+</html>
